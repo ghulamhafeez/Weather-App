@@ -12,3 +12,18 @@ export const Cities = [
   { title: "Wazirabad", value: "wazirabad" },
   { title: "Attock", value: "attock" },
 ];
+
+export const popularCities = [
+  { city: "Lahore", province: "Punjab" },
+  { city: "Multan", province: "Punjab" },
+  { city: "Kirachi", province: "Sindh" },
+  { city: "Quetta", province: "Balochistan" },
+];
+
+export const Buttons = [
+  { name: "Today" },
+  { name: "Hourly" },
+  { name: "Daily" },
+  { name: "Monthly" },
+  { name: "Health & Quality" },
+];
