@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+.search{
+  text-align: center;
+  width: 300px;
+  margin-left: 350px;
+  
+}
+.cities-card{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.search-div{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background: #2ddbf9;
+box-shadow: 0px 4px 22px rgba(2, 67, 129, 0.7);
+border-radius: 10px;
+}
+.home{
+  text-align: center;
+}
+.footer-div{
+  text-align: center;
+    background: #2ddbf9;
+box-shadow:  0px 4px 22px rgba(2, 67, 129, 0.7);
+border-radius: 10px;
+}
