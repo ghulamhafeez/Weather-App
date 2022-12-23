@@ -36,7 +36,7 @@ export const PopularCities = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" onClick={() => handleRedirect()}>
+                <Button size="small" onClick={handleRedirect}>
                   More Detail
                 </Button>
               </CardActions>
