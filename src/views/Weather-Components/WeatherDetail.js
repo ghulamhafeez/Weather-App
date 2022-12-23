@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { Buttons } from "./Constant";
+import { DETAIL_TABLS } from "./Constant";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -10,7 +10,7 @@ export const WeatherDetail = () => {
     <div>
       <h1 className="text">Lahore</h1>
       <div className="button">
-        {Buttons.map((x) => {
+        {DETAIL_TABLS.map((x) => {
           return <Button variant="contained">{x.name}</Button>;
         })}
       </div>
