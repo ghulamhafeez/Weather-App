@@ -6,7 +6,7 @@ import {
   useGetDailyForecastQuery,
   useGetHourlyForecastQuery,
 } from "../../services/WeatherService";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { WeatherDetailCards } from "./WeatherDetailCards";
 export const WeatherDetail = () => {
   const { id } = useParams();
