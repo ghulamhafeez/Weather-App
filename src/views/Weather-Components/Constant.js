@@ -14,10 +14,10 @@ export const Cities = [
 ];
 
 export const POPULAR_CITIES = [
-  { city: "Lahore", province: "Punjab" },
-  { city: "Multan", province: "Punjab" },
-  { city: "Kirachi", province: "Sindh" },
-  { city: "Quetta", province: "Balochistan" },
+  { city: "Lahore", Key: "260622", province: "Punjab" },
+  { city: "Multan", Key: "260624", province: "Punjab" },
+  { city: "Kirachi", Key: "261158", province: "Sindh" },
+  { city: "Quetta", Key: "257185", province: "Balochistan" },
 ];
 
 export const DETAIL_TABLS = [

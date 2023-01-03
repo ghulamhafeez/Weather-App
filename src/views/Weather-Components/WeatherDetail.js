@@ -1,44 +1,55 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { DETAIL_TABLS } from "./Constant";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import { HealthCard } from "./HealthCard";
+import {
+  useGetDailyForecastQuery,
+  useGetHourlyForecastQuery,
+} from "../../services/WeatherService";
+import { useParams, useNavigate } from "react-router-dom";
+import { WeatherDetailCards } from "./WeatherDetailCards";
 export const WeatherDetail = () => {
+  const { id } = useParams();
+  const { data } = useGetDailyForecastQuery(id);
+
+  const handleRedirect = () => {
+    const { data } = useGetHourlyForecastQuery(id);
+    console.log("houlryData", data);
+  };
   return (
     <div>
       <h1 className="text">Lahore</h1>
       <div className="button">
         {DETAIL_TABLS.map((x) => {
-          return <Button variant="contained">{x.name}</Button>;
-        })}
-      </div>
-      <div className="label">
-        <h2>Weather</h2> <h2>Air Quality</h2>
-      </div>
-      <div className="detail-card">
-        <Card variant="outlined" sx={{ minWidth: 600, background: "#2ddbf9" }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 40, textAlign: "center" }} gutterBottom>
-              30
-            </Typography>
-            <Typography sx={{ fontSize: 20, textAlign: "center" }} gutterBottom>
-              Tem
-            </Typography>
-          </CardContent>
-          <CardActions></CardActions>
-        </Card>
+          return (
+            <Button
+              onClick={handleRedirect}
+              sx={{ backgroundColor: "#E07A5F", color: "white" ,
+                
+              
+              '&:hover':{
+                backgroundColor:'#E07A5F'
 
-        <Card variant="outlined" sx={{ minWidth: 600, background: "#2ddbf9" }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 40, textAlign: "center" }} gutterBottom>
-              Good
-            </Typography>
-          </CardContent>
-          <CardActions></CardActions>
-        </Card>
+              }
+            }}
+              variant="contained"
+            >
+              {x.name}
+            </Button>
+          );
+        })}
+
+        {/* <Button variant="contained" onClick={handleRedirect}>
+          Hourly
+        </Button>
+
+        <Button variant="contained">Daily</Button>
+        <Button variant="contained">Weekly</Button>
+        <Button variant="contained">Monthly</Button> */}
       </div>
+
+      <WeatherDetailCards data={data} />
+      <HealthCard />
     </div>
   );
 };
