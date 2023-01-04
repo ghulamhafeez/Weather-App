@@ -14,7 +14,6 @@ export const WeatherDetail = () => {
 
   const handleRedirect = () => {
     const { data } = useGetHourlyForecastQuery(id);
-    console.log("houlryData", data);
   };
   return (
     <div>
@@ -39,13 +38,6 @@ export const WeatherDetail = () => {
           );
         })}
 
-        {/* <Button variant="contained" onClick={handleRedirect}>
-          Hourly
-        </Button>
-
-        <Button variant="contained">Daily</Button>
-        <Button variant="contained">Weekly</Button>
-        <Button variant="contained">Monthly</Button> */}
       </div>
 
       <WeatherDetailCards data={data} />

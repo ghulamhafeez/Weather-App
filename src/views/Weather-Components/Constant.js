@@ -1,3 +1,5 @@
+export const API_KEY = "w74RorP4hf7wdUwIUlKNPhRxIa4fEVjW";
+export const BASE_URL = "http://dataservice.accuweather.com"
 export const Cities = [
   { title: "Sargodha", value: "sargodha" },
   { title: "Bahawalpur", value: "bahawalpur" },
@@ -14,10 +16,10 @@ export const Cities = [
 ];
 
 export const POPULAR_CITIES = [
-  { city: "Lahore", Key: "260622", province: "Punjab" },
-  { city: "Multan", Key: "260624", province: "Punjab" },
-  { city: "Kirachi", Key: "261158", province: "Sindh" },
-  { city: "Quetta", Key: "257185", province: "Balochistan" },
+  { city: "Lahore", key: "260622", province: "Punjab" },
+  { city: "Multan", key: "260624", province: "Punjab" },
+  { city: "Kirachi", key: "261158", province: "Sindh" },
+  { city: "Quetta", key: "257185", province: "Balochistan" },
 ];
 
 export const DETAIL_TABLS = [

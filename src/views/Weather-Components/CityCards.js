@@ -20,17 +20,18 @@ export const CityCards = () => {
           return (
             <Card
               variant="outlined"
-              sx={{ minWidth: 250, background: "#E07A5F" }}
+              sx={{ minWidth: 250, height: 150, background: "#E07A5F" }}
             >
-              <CardContent>
+              <CardContent 
+               >
                 <Typography
-                  sx={{ fontSize: 40, textAlign: "center", color: "white" }}
+                  sx={{ fontSize: 30, textAlign: "center", color: "white" }}
                   gutterBottom
                 >
                   {x.city}
                 </Typography>
                 <Typography
-                  sx={{ fontSize: 20, textAlign: "center", color: "white" }}
+                  sx={{ fontSize: 15, textAlign: "center", color: "white" }}
                   gutterBottom
                 >
                   {x.province}
@@ -38,9 +39,8 @@ export const CityCards = () => {
               </CardContent>
               <CardActions>
                 <Button
-                  sx={{ color: "white" }}
-                  size="small"
-                  onClick={() => handleRedirect(x.Key)}
+                  sx={{ color: "white", padding: "1px" }}
+                  onClick={() => handleRedirect(x.key)}
                 >
                   More Detail
                 </Button>

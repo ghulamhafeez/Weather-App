@@ -4,7 +4,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 export const WeatherDetailCards = ({data}) => {
-    console.log("data", data);
   return (
     <div>
       <div className="label">
