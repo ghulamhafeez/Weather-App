@@ -12,7 +12,7 @@ export const WeatherDetail = () => {
   const { id } = useParams();
   const { data } = useGetDailyForecastQuery(id);
 
-  const handleRedirect = () => {
+  const HandleRedirect = () => {
     const { data } = useGetHourlyForecastQuery(id);
   };
   return (
@@ -22,7 +22,7 @@ export const WeatherDetail = () => {
         {DETAIL_TABLS.map((x) => {
           return (
             <Button
-              onClick={handleRedirect}
+              onClick={HandleRedirect}
               sx={{ backgroundColor: "#E07A5F", color: "white" ,
                 
               
