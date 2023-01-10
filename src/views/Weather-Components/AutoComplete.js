@@ -1,21 +1,37 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCityAutoCompleteQuery } from "../../services/WeatherService";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { Grid } from "@mui/material";
+import Button from "@mui/material/Button";
+
 export const AutoComplete = () => {
   const navigate = useNavigate();
   const handleRedirect = (id) => {
     navigate(`/weather-detail/${id}`);
   };
-
   const [autoCompleteValue, setAutoCompleteValue] = useState();
-
   const { data } = useGetCityAutoCompleteQuery(autoCompleteValue);
 
   return (
-    <div className="search-div">
-      <div className="search">
+    <Grid
+      container
+      flexWrap="wrap"
+      bgcolor={"#E07A5F"}
+      height={"60px"}
+      ml={"240px"}
+      width={"1118px"}
+      justifyContent={"space-between"}
+      className="search-div"
+    >
+      <Grid
+        sx={{ width: "380px" }}
+        justifyContent={"space-between"}
+        display={"flex"}
+        ml={8}
+        gap={30}
+      >
         <Autocomplete
           freeSolo
           id="free-solo-2-demo"
@@ -24,7 +40,9 @@ export const AutoComplete = () => {
           getOptionLabel={(option) =>
             option.LocalizedName ? option.LocalizedName : ""
           }
-          onChange={(option) => handleRedirect(option.Key)}
+          onChange={(event, newValue) => {
+            handleRedirect(newValue.Key);
+          }}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -38,16 +56,19 @@ export const AutoComplete = () => {
                 setAutoCompleteValue(e.target.value);
               }}
               sx={{
+                "& .MuiAutocomplete-input": {
+                  minWidth: "260px !important",
+                },
                 "& .Mui-focused": {
                   "& .MuiOutlinedInput-notchedOutline": {
                     borderColor: "white !important",
                   },
                 },
                 "& .MuiOutlinedInput-root": {
-                        height:'40px',
-                        padding: "0px 5px",
-                        color:'white',
-                    },
+                  height: "40px",
+                  padding: "0px 5px",
+                  color: "white",
+                },
               }}
             />
           )}
@@ -67,7 +88,10 @@ export const AutoComplete = () => {
             },
           }}
         />
-      </div>
-    </div>
+        <Button color="inherit" variant="text" onClick={() => navigate(-1)}>
+          Back
+        </Button>
+      </Grid>
+    </Grid>
   );
 };

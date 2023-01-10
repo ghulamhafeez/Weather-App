@@ -3,11 +3,5 @@ import React from "react";
 import { AutoComplete } from "./AutoComplete";
 
 export const Header = () => {
-  return (
-    <>
-      <div>
-        <AutoComplete />
-      </div>
-    </>
-  );
+  return <AutoComplete />;
 };

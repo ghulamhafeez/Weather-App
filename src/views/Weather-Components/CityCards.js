@@ -6,7 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import { Grid } from "@mui/material";
 export const CityCards = () => {
   const navigate = useNavigate();
   const handleRedirect = (id) => {
@@ -14,24 +14,42 @@ export const CityCards = () => {
   };
 
   return (
-    <div>
-      <div className="cities-card">
-        {POPULAR_CITIES.map((x) => {
-          return (
+    <Grid container gap={5} mb={3} ml={4} item sx={4} justifyContent={"center"}>
+      {POPULAR_CITIES.map((x) => {
+        return (
+          <Grid item>
             <Card
               variant="outlined"
-              sx={{ minWidth: 250, height: 150, background: "#E07A5F" }}
+              sx={{ minWidth: 250, height: 180, background: "#E07A5F" }}
             >
-              <CardContent 
-               >
+              <CardContent sx={{ pb: "0" }}>
+                <img
+                  className="img"
+                  src={x.url}
+                  alt="Weather Icon"
+                  width="40"
+                  height="40"
+                ></img>
                 <Typography
-                  sx={{ fontSize: 30, textAlign: "center", color: "white" }}
+                  sx={{
+                    fontSize: 30,
+                    textAlign: "center",
+                    color: "white",
+                    "& .MuiTypography-root": {
+                      mb: "-5",
+                    },
+                  }}
                   gutterBottom
                 >
                   {x.city}
                 </Typography>
                 <Typography
-                  sx={{ fontSize: 15, textAlign: "center", color: "white" }}
+                  sx={{
+                    fontSize: 15,
+                    textAlign: "center",
+                    color: "white",
+                    pt: 0,
+                  }}
                   gutterBottom
                 >
                   {x.province}
@@ -46,9 +64,9 @@ export const CityCards = () => {
                 </Button>
               </CardActions>
             </Card>
-          );
-        })}
-      </div>
-    </div>
+          </Grid>
+        );
+      })}
+    </Grid>
   );
 };
