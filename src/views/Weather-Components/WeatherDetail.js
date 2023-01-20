@@ -1,47 +1,58 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import React, { useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 import { DETAIL_TABLS } from "./Constant";
 import { HealthCard } from "./HealthCard";
+import { HourlyWeather } from "../Weather-Components/HourlyWeather";
 import {
   useGetDailyForecastQuery,
-  useGetHourlyForecastQuery,
+  useGetlocationsForecastQuery,
 } from "../../services/WeatherService";
 import { useParams } from "react-router-dom";
 import { WeatherDetailCards } from "./WeatherDetailCards";
+import { Grid } from "@mui/material";
 export const WeatherDetail = () => {
+  const [value, setValue] = useState(0);
   const { id } = useParams();
   const { data } = useGetDailyForecastQuery(id);
 
-  const HandleRedirect = () => {
-    const { data } = useGetHourlyForecastQuery(id);
+  const { data: locationData } = useGetlocationsForecastQuery(id);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
+
   return (
     <div>
-      <h1 className="text">Lahore</h1>
-      <div className="button">
-        {DETAIL_TABLS.map((x) => {
-          return (
-            <Button
-              onClick={HandleRedirect}
-              sx={{ backgroundColor: "#E07A5F", color: "white" ,
-                
-              
-              '&:hover':{
-                backgroundColor:'#E07A5F'
-
-              }
-            }}
-              variant="contained"
+      <h1 className="text">{locationData?.LocalizedName}</h1>
+      <Grid justifyContent={"center"} className="button">
+        <Box>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              sx={{
+                "& .MuiButtonBase-root-MuiTab-root.Mui-selected": {
+                  color: "#E07A5F !important",
+                },
+              }}
             >
-              {x.name}
-            </Button>
-          );
-        })}
-
-      </div>
-
-      <WeatherDetailCards data={data} />
-      <HealthCard />
+              {DETAIL_TABLS.map((x) => {
+                return <Tab label={x.name} />;
+              })}
+            </Tabs>
+          </Box>
+        </Box>
+      </Grid>
+      {value === 1 ? (
+        <HourlyWeather id={id} />
+      ) : (
+        <>
+          <WeatherDetailCards data={data} />
+          <HealthCard />{" "}
+        </>
+      )}
     </div>
   );
 };

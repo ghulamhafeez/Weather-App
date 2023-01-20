@@ -20,8 +20,12 @@ export const WeatherApi = createApi({
     }),
 
     getHourlyForecast: builder.query({
-      query: (id) => `forecasts//v1/hourly/12hour/${id}?apikey=${API_KEY}`,
+      query: (id) => `forecasts/v1/hourly/12hour/${id}?apikey=${API_KEY}`,
     }),
+    getlocationsForecast: builder.query({
+      query: (id) => `locations/v1/${id}?apikey=${API_KEY}`,
+    }),
+  
   }),
 });
 export const {
@@ -29,4 +33,5 @@ export const {
   useGetCityAutoCompleteQuery,
   useGetDailyForecastQuery,
   useGetHourlyForecastQuery,
+  useGetlocationsForecastQuery,
 } = WeatherApi;
