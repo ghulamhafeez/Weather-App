@@ -15,6 +15,9 @@ The project primarily uses following technologies:
 
 
 ## UI
+![Screenshot 2023-02-10 155405](https://user-images.githubusercontent.com/76959464/228216358-0a2f911f-f463-4360-9069-6dc807b81809.png)
+![Screenshot 2023-02-10 155556](https://user-images.githubusercontent.com/76959464/228216373-997a5a86-b980-4b25-a99d-833496b981e4.png)
+![Screenshot 2023-02-10 155615](https://user-images.githubusercontent.com/76959464/228216398-3f9cabc3-001a-4e05-a7af-c9889ff71831.png)
 
 
 ## Video
