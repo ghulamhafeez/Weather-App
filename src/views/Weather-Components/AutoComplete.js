@@ -30,7 +30,7 @@ export const AutoComplete = () => {
         justifyContent={"space-between"}
         display={"flex"}
         ml={8}
-        gap={30}
+        gap={75}
       >
         <Autocomplete
           freeSolo
@@ -88,7 +88,7 @@ export const AutoComplete = () => {
             },
           }}
         />
-        <Button color="inherit" variant="text" onClick={() => navigate(-1)}>
+        <Button sx={{color:"white"}}  onClick={() => navigate(-1)}>
           Back
         </Button>
       </Grid>
